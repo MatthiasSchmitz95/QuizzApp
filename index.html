@@ -12,7 +12,7 @@
 
 </head>
 
-<body onload="intit()">
+<body onload="borderChange('geographic')" >
 
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
@@ -20,31 +20,28 @@
         </div>
     </nav>
 
-    <div class="container-big">
-        <div class="container-content">
+    <div class="container-big" id="container-content">
+        <div class="container-content" >
             <div class="mycontainer-left">
                 <img src="img/logo.png" class="logo">
                 <div class="flex" id="flex">
                 <a href="#" id="geographic" onclick="borderChange('geographic')">Geographic</a>
                 <a href="#" id="history" onclick="borderChange('history')">History</a>
-                <a href="#" id="coding" onclick="borderChange('coding')">Coding</a>
+                <a href="#" id="codeing" onclick="borderChange('codeing')">Coding</a>
             </div>
             </div>
             <div class="container-right">
                 <h2>Are you ready for the Geographic challenge?</h2>
-                <button class="blue-btn">Start</button>
+                <button onclick="renderQuestion()" class="blue-btn">Start</button>
             </div>
 
         </div>
-        <div class="question-footer">
-            <span>
-                <b>1</b>von<b id="question-footer">5</b>
 
-            </span>
-
-
-        </div>
     </div>
+
+
+
+
 </body>
 
 </html>

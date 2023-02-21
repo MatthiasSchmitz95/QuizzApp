@@ -1,5 +1,6 @@
 body{
     margin: 0px;
+    background-color: #FEFAEF
 
 }
 
@@ -53,7 +54,7 @@ body{
     text-decoration: none;
     color: white;
 }
-.click-border{
+.clicked-border{
     border-left: 7px solid white !important;
 }
 .flex a:hover{
@@ -81,5 +82,25 @@ body{
     width:100px;
     height: 40px;
     border-radius: 30px;
+
+}
+
+.card{
+    height: 500px;
+    width : 700px;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+.card a{
+    border: 1px solid black;
+    display: flex;
+    height: 50px;
+    width:600px;
+    margin-top: 10px;
+
 
 }
