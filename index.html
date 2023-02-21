@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>QuizzApp</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js"></script>
+
 </head>
-<body>
-    
+
+<body onload="intit()">
+
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">QuizzApp</span>
+        </div>
+    </nav>
+
+    <div class="container-big">
+        <div class="container-content">
+            <div class="mycontainer-left">
+                <img src="img/logo.png" class="logo">
+                <div class="flex">
+                <a>Geographic</a>
+                <a>History</a>
+                <a>coding</a>
+            </div>
+            </div>
+            <div class="container-right">
+
+
+
+            </div>
+
+        </div>
+        <div class="question-footer">
+            <span>
+                <b>1</b>von<b id="question-footer">5</b>
+
+            </span>
+
+
+        </div>
+    </div>
 </body>
+
 </html>
