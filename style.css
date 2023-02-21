@@ -53,6 +53,9 @@ body{
     text-decoration: none;
     color: white;
 }
+.click-border{
+    border-left: 7px solid white !important;
+}
 .flex a:hover{
     border-left: 7px solid white;
     cursor: pointer;

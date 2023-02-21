@@ -28,6 +28,18 @@ let questions=[{
 
 function intit(){
     document.getElementById('question-footer').innerHTML = questions.length;
+}
+
+function defaultBorder(){
     
+ document.getElementById(id).classList.remove("clicked-border");
+ document.getElementById(id).classList.remove("clicked-border");
+ document.getElementById(id).classList.remove("clicked-border");
+
+}
+
+function borderChange(id){
+    
+    document.getElementById(id).classList.add("click-border");
 
 }
