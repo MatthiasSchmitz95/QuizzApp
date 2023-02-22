@@ -25,6 +25,7 @@ let questions = [{
     "right_answer": 2
 
 }]
+let currentQuestion = questions[0];
 
 function init() {
     document.getElementById('question-footer').innerHTML = questions.length;
@@ -46,17 +47,17 @@ function borderChange(id) {
 }
 
 function renderQuestionCard() {
-    
+
     document.getElementById('container-content').innerHTML = '';
     document.getElementById('container-content').innerHTML += `
     <div class="card">
     <img class="img-size" src="img/quizz.jpg">
     <h2 id="question">Question</h2>
     <div class="link-container">
-        <a id="answer1" onclick="selectAnswer('answer1')" href="">Antwort_1</a>
-        <a id="answer2" onclick="selectAnswer('answer2')" href="">Antwort_1</a>
-        <a id="answer3" onclick="selectAnswer('answer3')" href="">Antwort_1</a>
-        <a id="answer4" onclick="selectAnswer('answer4')" href="">Antwort_1</a>
+        <a id="answer1" onclick="selectAnswer('answer1');return false;">Antwort_1</a>
+        <a id="answer2" onclick="selectAnswer('answer2');return false;">Antwort_1</a>
+        <a id="answer3" onclick="selectAnswer('answer3');return false;">Antwort_1</a>
+        <a id="answer4" onclick="selectAnswer('answer4');return false;">Antwort_1</a>
     </div>
     <div class="question-footer">
         <span>
@@ -69,22 +70,36 @@ function renderQuestionCard() {
 
 </div>
     `;
-       
-}
-
-
-function renderTask(question,answer1,answer2,answer3,answer4){
-document.getElementById(question).innerHTML = questions[0]['question'];   
-document.getElementById(answer1).innerHTML = questions[0]['answer_1'];
-document.getElementById(answer2).innerHTML = questions[0]['answer_2'];
-document.getElementById(answer3).innerHTML = questions[0]['answer_3'];
-document.getElementById(answer4).innerHTML = questions[0]['answer_4'];
-
-
 
 }
 
-function selectAnswer(answer){
+
+
+function renderTask(question, answer1, answer2, answer3, answer4) {
+    document.getElementById(question).innerHTML = currentQuestion['question'];
+    document.getElementById(answer1).innerHTML = currentQuestion['answer_1'];
+    document.getElementById(answer2).innerHTML = currentQuestion['answer_2'];
+    document.getElementById(answer3).innerHTML = currentQuestion['answer_3'];
+    document.getElementById(answer4).innerHTML = currentQuestion['answer_4'];
+
+
+
+}
+
+function selectAnswer(answer) {
+    let lastChar = answer.at(-1);
+    let idOfRightAnswer = `answer${currentQuestion['right_answer']}`;
+    if (currentQuestion['right_answer'] == lastChar) {
+        console.log('richtige Antwort');
+         document.getElementById(answer).classList.add('right-answer');
+        // renderQuestionCard();
+    }
+    else {
+        document.getElementById(answer).classList.add('wrong-answer');
+        document.getElementById(idOfRightAnswer).classList.add('right-answer');
+        // renderQuestionCard();
+        console.log('falsche Antwort');
+    }
 
 
 }

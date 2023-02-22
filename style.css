@@ -128,3 +128,9 @@ body{
     justify-content: space-between;
     width: 600px;
 }
+.right-answer{
+    background-color: greenyellow;
+}
+.wrong-answer{
+    background-color: red;
+}
