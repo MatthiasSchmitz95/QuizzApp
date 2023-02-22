@@ -45,22 +45,22 @@ function borderChange(id) {
 
 }
 
-function renderQuestion() {
+function renderQuestionCard() {
     
     document.getElementById('container-content').innerHTML = '';
     document.getElementById('container-content').innerHTML += `
     <div class="card">
-    <img src="">
-    <h2>Question</h2>
-    <div>
-        <a href="">Antwort_1</a>
-        <a href="">Antwort_1</a>
-        <a href="">Antwort_1</a>
-        <a href="">Antwort_1</a>
+    <img class="img-size" src="img/quizz.jpg">
+    <h2 id="question">Question</h2>
+    <div class="link-container">
+        <a id="answer1" onclick="selectAnswer('answer1')" href="">Antwort_1</a>
+        <a id="answer2" onclick="selectAnswer('answer2')" href="">Antwort_1</a>
+        <a id="answer3" onclick="selectAnswer('answer3')" href="">Antwort_1</a>
+        <a id="answer4" onclick="selectAnswer('answer4')" href="">Antwort_1</a>
     </div>
     <div class="question-footer">
         <span>
-            <b>1</b>von<b id="question-footer">${questions.length}</b>
+            <b>1</b> von <b id="question-footer">${questions.length}</b>
         </span>
         <button>Next Question</button>
 
@@ -68,9 +68,23 @@ function renderQuestion() {
     </div>
 
 </div>
-    
-    
-    
     `;
        
+}
+
+
+function renderTask(question,answer1,answer2,answer3,answer4){
+document.getElementById(question).innerHTML = questions[0]['question'];   
+document.getElementById(answer1).innerHTML = questions[0]['answer_1'];
+document.getElementById(answer2).innerHTML = questions[0]['answer_2'];
+document.getElementById(answer3).innerHTML = questions[0]['answer_3'];
+document.getElementById(answer4).innerHTML = questions[0]['answer_4'];
+
+
+
+}
+
+function selectAnswer(answer){
+
+
 }

@@ -37,6 +37,13 @@ body{
     
 }
 
+.img-size{
+    object-fit: cover;
+    height:250px;
+    border-radius: 10px 10px 0px 0px;
+    width:700px;
+}
+
 .flex{
     display: flex;
     flex-direction: column;
@@ -53,6 +60,7 @@ body{
     padding-right: 77px;
     text-decoration: none;
     color: white;
+
 }
 .clicked-border{
     border-left: 7px solid white !important;
@@ -86,21 +94,37 @@ body{
 }
 
 .card{
-    height: 500px;
+    height: 600px;
     width : 700px;
-    background-color: green;
+    background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 }
 .card a{
-    border: 1px solid black;
-    display: flex;
-    height: 50px;
-    width:600px;
+        border: 1px solid black;
+        display: flex;
+        height: 50px;
+        width: 600px;
+        margin-top: 10px;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        justify-content: center;
+}
+
+.card a:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+
+
+.question-footer{
     margin-top: 10px;
-
-
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
 }
