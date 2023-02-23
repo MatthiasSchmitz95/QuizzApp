@@ -105,7 +105,7 @@ body{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 }
-.card a{
+.answers {
         border: 1px solid black;
         display: flex;
         height: 50px;
@@ -115,6 +115,7 @@ body{
         text-decoration: none;
         color: black;
         justify-content: center;
+        cursor: pointer;
 }
 
 .card a:hover{
