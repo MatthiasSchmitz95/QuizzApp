@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizzApp</title>
+    <title>Quizapp Coding</title>
     <link rel="stylesheet" href="style.css">
-
     <script src="scriptsTest.js"></script>
-
 </head>
-
-<body onload="borderChange('geographic'), init(questionsGeographic)">
+<body onload="borderChange('coding'), init(questionsCoding)">
 
     <div class="container-big" id="container-content">
         <div class="container-content">
@@ -25,8 +21,8 @@
                 </div>
             </div>
             <div class="container-right">
-                <h2>Are you ready for the Geographic challenge?</h2>
-                <button onclick="renderTask(questionsGeographic), showCard(),progressBar(questionsGeographic)" class="blue-btn">Start</button>
+                <h2>Are you ready for the Coding challenge?</h2>
+                <button onclick="renderTask(questionsCoding), showCard()" class="blue-btn">Start</button>
             </div>
         </div>
     </div>
@@ -40,10 +36,10 @@
           </div>
         <h2 id="question">Question</h2>
         <div id="taskContainer" class="link-container">
-            <div class="answers" id="answer1" onclick=" selectAnswer('answer1',questionsGeographic)">Antwort_1</div>
-            <div class="answers" id="answer2" onclick=" selectAnswer('answer2',questionsGeographic)">Antwort_1</div>
-            <div class="answers" id="answer3" onclick=" selectAnswer('answer3',questionsGeographic)">Antwort_1</div>
-            <div class="answers" id="answer4" onclick=" selectAnswer('answer4',questionsGeographic)">Antwort_1</div>
+            <div class="answers" id="answer1" onclick=" selectAnswer('answer1',questionsCoding)">Antwort_1</div>
+            <div class="answers" id="answer2" onclick=" selectAnswer('answer2',questionsCoding)">Antwort_1</div>
+            <div class="answers" id="answer3" onclick=" selectAnswer('answer3',questionsCoding)">Antwort_1</div>
+            <div class="answers" id="answer4" onclick=" selectAnswer('answer4',questionsCoding)">Antwort_1</div>
         </div>
 
         <div id="questionFooter" class="question-footer">
@@ -51,13 +47,10 @@
             <span>
                 <b id="CurrentQustion">1</b> von <b id="totalQuestions"></b>
             </span>
-            <button class="next" id="next" disabled onclick="nextQuestion(questionsGeographic)">Next Question</button>
+            <button class="next" id="next" disabled onclick="nextQuestion(questionsCoding)">Next Question</button>
 
 
         </div>
 
 </body>
-
-
-
 </html>

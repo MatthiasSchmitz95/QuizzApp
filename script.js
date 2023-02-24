@@ -34,6 +34,7 @@ function init() {
     document.getElementById('totalQuestions').innerHTML = questions.length;
 }
 
+
 function questionProgress() {
     document.getElementById('CurrentQustion').innerHTML = currentQuestion + 1;
 }
@@ -41,20 +42,30 @@ function questionProgress() {
 function defaultBorder() {
     document.getElementById('geographic').classList.remove('clicked-border');
     document.getElementById('history').classList.remove('clicked-border');
-    document.getElementById('codeing').classList.remove('clicked-border');
+    document.getElementById('coding').classList.remove('clicked-border');
 
 }
 
 function borderChange(id) {
     defaultBorder();
-
     document.getElementById(id).classList.add('clicked-border');
 
+}
+
+
+
+function renderBar() {
+    for (let i = 0; i < questions.length; i++) {
+        document.getElementById('bar').innerHTML += `
+      <div class="progress" id="${i}"></div>
+      `;
+    }
 }
 
 function renderQuestionCard() {
     document.getElementById('container-content').innerHTML = '';
     templateCard();
+    renderBar();
 }
 
 
@@ -62,7 +73,6 @@ function renderTask() {
 
     if (currentQuestion >= questions.length) {
         document.getElementById('question').innerHTML = '';
-        
         document.getElementById('questionFooter').innerHTML = '';
         document.getElementById('taskContainer').innerHTML = `
     <div class="endgame">
@@ -86,54 +96,60 @@ function renderTask() {
 function selectAnswer(answer) {
     let lastChar = answer.at(-1);
     let idOfRightAnswer = `answer${questions[currentQuestion]['right_answer']}`;
+    stopClicking();
     if (questions[currentQuestion]['right_answer'] == lastChar) {
-
         document.getElementById(answer).classList.add('right-answer');
         rightAnswers++;
-
     }
     else {
         document.getElementById(answer).classList.add('wrong-answer');
         document.getElementById(idOfRightAnswer).classList.add('right-answer');
         wrongAnswers++;
-
     }
     document.getElementById('next').disabled = false;
-   
+}
+
+function stopClicking(){
+    document.getElementById('answer1').classList.add('no-pointer');
+    document.getElementById('answer2').classList.add('no-pointer');
+    document.getElementById('answer3').classList.add('no-pointer');
+    document.getElementById('answer4').classList.add('no-pointer');
+
 
 }
 
 function resetAnswers() {
-    document.getElementById('answer1').classList.remove('right-answer', 'wrong-answer')
-    document.getElementById('answer2').classList.remove('right-answer', 'wrong-answer')
-    document.getElementById('answer3').classList.remove('right-answer', 'wrong-answer')
-    document.getElementById('answer4').classList.remove('right-answer', 'wrong-answer')
+    document.getElementById('answer1').classList.remove('right-answer', 'wrong-answer', 'no-pointer')
+    document.getElementById('answer2').classList.remove('right-answer', 'wrong-answer', 'no-pointer')
+    document.getElementById('answer3').classList.remove('right-answer', 'wrong-answer', 'no-pointer')
+    document.getElementById('answer4').classList.remove('right-answer', 'wrong-answer', 'no-pointer')
 
 
 }
 
+
+
 function nextQuestion() {
     let endgame = questions.length - 1;
     currentQuestion++;
-
-     if (currentQuestion == endgame) {
-         resetAnswers();
-         renderTask();
-         if (currentQuestion!=questions.length) {
+    if (currentQuestion == endgame) {
+        resetAnswers();
+        renderTask();
+        if (currentQuestion != questions.length) {
             questionProgress();
         }
         document.getElementById('next').disabled = true;
-         document.getElementById('next').innerHTML= 'Ergebnis';        
-     ;
+        document.getElementById('next').innerHTML = 'Ergebnis';
+        ;
 
-     } else {
+    } else {
         document.getElementById('next').disabled = true;
         resetAnswers();
         renderTask();
-        if (currentQuestion!=questions.length) {
+        if (currentQuestion != questions.length) {
             questionProgress();
         }
-        
+
     }
 }
 
@@ -142,6 +158,7 @@ function templateCard() {
         `
     <div class="card">
     <img class="img-size" src="img/quizz.jpg">
+    <div class="bar" id="bar"></div>
     <h2 id="question">Question</h2>
     <div id="taskContainer" class="link-container">
         <div class="answers" id="answer1" onclick=" selectAnswer('answer1');return false;">Antwort_1</div>
@@ -149,7 +166,9 @@ function templateCard() {
         <div class="answers" id="answer3" onclick=" selectAnswer('answer3');return false;">Antwort_1</div>
         <div class="answers" id="answer4" onclick=" selectAnswer('answer4');return false;">Antwort_1</div>
     </div>
+    
     <div id="questionFooter" class="question-footer">
+   
         <span>
             <b id="CurrentQustion">1</b> von <b id="totalQuestions">${questions.length}</b>
         </span>
