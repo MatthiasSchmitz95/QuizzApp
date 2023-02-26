@@ -1,4 +1,4 @@
-let questionsGeographic = [{
+let questionsGeography = [{
     "question": "what is the highest mountain?",
     "answer_1": "Mount everest",
     "answer_2": "Zugspitze",
@@ -96,18 +96,16 @@ function init(topic) {
     document.getElementById('totalQuestions').innerHTML = topic.length;
 }
 function showCard(){
-    document.getElementById('container-content').innerHTML='';
+    document.getElementById('container-content').style=`display:none`;
     document.getElementById('card').style ='';
 }
-
-
 
 function questionProgress() {
     document.getElementById('CurrentQustion').innerHTML = currentQuestion + 1;
 }
 
 function defaultBorder() {
-    document.getElementById('geographic').classList.remove('clicked-border');
+    document.getElementById('geography').classList.remove('clicked-border');
     document.getElementById('history').classList.remove('clicked-border');
     document.getElementById('coding').classList.remove('clicked-border');
 
@@ -123,13 +121,20 @@ function borderChange(id) {
 function renderTask(topic) {
 
     if (currentQuestion >= topic.length) {
-        document.getElementById('question').innerHTML = '';
-        document.getElementById('questionFooter').innerHTML = '';
-        document.getElementById('taskContainer').innerHTML = `
+        document.getElementById('card').style =`display:none`;
+        document.getElementById('container-content').style='';
+        document.getElementById('share').style ='';
+        document.getElementById('restartGame').style='';
+
+
+        document.getElementById('right-container').innerHTML = `
+    <img class="fixed" src="img/tropy.png">
     <div class="endgame">
-    <h2>Du hast alle Fragen beantwortet. Du hattest ${rightAnswers}Antworten richtig und ${wrongAnswers} falsch.</h2>
     
-    <span>${rightAnswers}/${topic.length}</span>
+    <img src="img/brain result.png">
+    <h2>completed Quiz</h2>
+    <p><b>Your Score ${rightAnswers}/${topic.length}<b></p>
+
     </div>
     
     `;
@@ -184,8 +189,6 @@ function resetAnswers() {
 
 }
 
-
-
 function nextQuestion(topic) {
     let endgame = topic.length - 1;
     currentQuestion++;
@@ -210,31 +213,17 @@ function nextQuestion(topic) {
     }
 }
 
-// function templateCard(topic) {
-//     document.getElementById('container-content').innerHTML +=
-//         `
-//     <div class="card">
-//     <img class="img-size" src="img/quizz.jpg">
-//     <div class="bar" id="bar"></div>
-//     <h2 id="question">Question</h2>
-//     <div id="taskContainer" class="link-container">
-//         <div class="answers" id="answer1" onclick=" selectAnswer('answer1',topic)">Antwort_1</div>
-//         <div class="answers" id="answer2" onclick=" selectAnswer('answer2',topic)">Antwort_1</div>
-//         <div class="answers" id="answer3" onclick=" selectAnswer('answer3',topic)">Antwort_1</div>
-//         <div class="answers" id="answer4" onclick=" selectAnswer('answer4',topic)">Antwort_1</div>
-//     </div>
-    
-//     <div id="questionFooter" class="question-footer">
-   
-//         <span>
-//             <b id="CurrentQustion">1</b> von <b id="totalQuestions"></b>
-//         </span>
-//         <button class="next" id="next" disabled onclick="nextQuestion()">Next Question</button>
+function restart(topic){
+     currentQuestion = 0;
+     rightAnswers = 0;
+     wrongAnswers = 0;
 
+     document.getElementById('share').style =`display:none`;
+     document.getElementById('restartGame').style=`display:none`;
+     document.getElementById('container-content').style=`display:none`;
+     document.getElementById('card').style ='';
+     renderTask(topic);
+     questionProgress(topic);
+     init(topic);
+}
 
-//     </div>
-
-// </div>
-//     `;
-
-// }
