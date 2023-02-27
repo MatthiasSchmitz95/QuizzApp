@@ -23,19 +23,20 @@
                     <a href="history.html" id="history" onclick="borderChange('history')">History</a>
                     <a href="coding.html" id="coding" onclick="borderChange('coding')">Coding</a>
                 </div>
+                <div class="btn-box">
+                    <button id="share" class="btn-blue" style="display: none">SHARE</button>
+                    <button id="restartGame" class="btn-white" onclick="restart(questionsGeography)"
+                        style="display: none">REPLAY</button>
+                </div>
             </div>
             <div class="container-right" id="right-container">
                 <h2>Are you ready for the Geography challenge?</h2>
                 <button onclick="renderTask(questionsGeography), showCard()" class="blue-btn">Start</button>
-
             </div>
         </div>
     </div>
 
-    <div class="btn-box">
-        <button id="share" class="btn-blue" style="display: none">SHARE</button>
-        <button id="restartGame" class="btn-white" onclick="restart(questionsGeography)" style="display: none">REPLAY</button>
-    </div>
+
 
 
     </div>

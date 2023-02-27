@@ -21,8 +21,13 @@
                     <a href="history.html" id="history" onclick="borderChange('history')">History</a>
                     <a href="coding.html" id="coding" onclick="borderChange('coding')">Coding</a>
                 </div>
+                <div class="btn-box">
+                    <button id="share" class="btn-blue" style="display: none">SHARE</button>
+                    <button id="restartGame" class="btn-white" onclick="restart(questionsHistory)"
+                        style="display: none">REPLAY</button>
+                </div>
             </div>
-            <div class="container-right">
+            <div class="container-right" id="right-container">
                 <h2>Are you ready for the History challenge?</h2>
                 <button onclick="renderTask(questionsHistory), showCard()" class="blue-btn">Start</button>
             </div>
@@ -30,12 +35,14 @@
     </div>
 
 
+
+
     </div>
     <div id="card" class="card" style="display:none">
         <img class="img-size" src="img/quizz.jpg">
         <div class="bar">
-            <div class="bar progress"id="progress-bar" role="progressbar" style="width: 0%;">0%</div>
-          </div>
+            <div class="bar progress" id="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+        </div>
         <h2 id="question">Question</h2>
         <div id="taskContainer" class="link-container">
             <div class="answers" id="answer1" onclick=" selectAnswer('answer1',questionsHistory)">Antwort_1</div>
