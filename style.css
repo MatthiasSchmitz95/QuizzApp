@@ -5,6 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    font-family: 'rubik', sans-serif;
 
 }
 
@@ -62,8 +63,8 @@ body {
     margin-bottom: 30px;
     font-size: 30px;
     border-left: 7px transparent solid;
-    padding-left: 83px;
-    padding-right: 77px;
+    padding-left: 70px;
+    padding-right: 70px;
     text-decoration: none;
     color: white;
 
@@ -122,11 +123,15 @@ body {
     align-items: center;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    text-align: center;
 
 }
 
+
+
 .card h2 {
-    font-size: 22px;
+    font-size: 20px;
+    margin-bottom: 0px;
 }
 
 .bar {
@@ -198,6 +203,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-bottom: 72px;
+    width: 100%;
 }
 
 .endgame p {
@@ -208,7 +214,6 @@ body {
 .fixed {
     position: absolute;
     right: 0px;
-
 }
 
 .btn-box {
@@ -217,7 +222,6 @@ body {
     display: flex;
     flex-direction: column;
     z-index: 3;
-
 }
 
 .btn-blue {
@@ -342,5 +346,28 @@ body {
         padding-left: 5px;
         padding-right: 5px;
         font-size: 20px;
+    }
+}
+@media (max-width:500px){
+    .container-content{
+        display: block;
+
+    }
+    .mycontainer-left{
+        
+        justify-content: center;
+        align-items: center;
+        height:200px;
+        width: 100%;
+
+    }
+    .flex{
+        margin-top: 20px;
+        display: block;
+        
+    }
+    .container-content {
+        display: flex;
+        flex-direction: column;
     }
 }

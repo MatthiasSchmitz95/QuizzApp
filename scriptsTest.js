@@ -190,7 +190,7 @@ function renderQuestion(topic){
 }
 
 function updateProgressBar(topic){
-    let percent = (currentQuestion + 1) / topic.length;
+    let percent = (currentQuestion ) / topic.length;
     percent = Math.round(percent * 100);
     document.getElementById('progress-bar').innerHTML = `${percent}%`;
     document.getElementById('progress-bar').style = `width:${percent}%`;
@@ -209,6 +209,9 @@ function renderEndScreen(topic) {
 <img class="fixed" src="img/tropy.png">
 <div class="endgame">
 <img src="img/brain result.png">
+<div class="bar">
+<div class="bar progress" role="progressbar" style="width: 100%;">100%</div>
+</div>
 <h2>completed Quiz</h2>
 <p><b>Your Score ${rightAnswers}/${topic.length}</b></p>
 </div>
